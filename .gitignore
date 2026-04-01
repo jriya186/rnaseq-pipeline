@@ -1,0 +1,21 @@
+# Data files — too large for GitHub
+data/
+
+# Reference genome and index — too large for GitHub
+reference/
+
+# Nextflow working directory — temp files, can be huge
+work/
+
+# Results — reproducible, not source code
+results/
+
+# Nextflow logs and cache
+.nextflow/
+.nextflow.log*
+
+# Mac junk
+.DS_Store
+
+# SRA downloads
+*.sra
