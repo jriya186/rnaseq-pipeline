@@ -1,16 +1,15 @@
-// Step 1: FastQC
 process FASTQC {
     container 'quay.io/biocontainers/fastqc:0.12.1--hdfd78af_0'
     publishDir "${params.outdir}/fastqc", mode: 'copy'
 
     input:
-    tuple val(sample_id), path(reads)
+    tuple val(sample), val(condition), path(read1), path(read2)
 
     output:
-    tuple val(sample_id), path("*.html"), path("*.zip")
+    tuple val(sample), val(condition), path("*.html"), path("*.zip"), emit: reports
 
     script:
     """
-    fastqc ${reads[0]} ${reads[1]} --threads 2
+    fastqc ${read1} ${read2} --threads 2
     """
 }

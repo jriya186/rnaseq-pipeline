@@ -11,7 +11,7 @@ process FEATURECOUNTS {
     path "counts_matrix.txt.summary", emit: summary
 
     script:
-   """
+    """
     featureCounts \
         -T 4 \
         -p \
